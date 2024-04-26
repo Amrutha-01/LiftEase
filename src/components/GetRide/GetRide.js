@@ -29,7 +29,6 @@ export default function GetRide() {
   const [options, setOptions] = useState([]);
   const loading = open && options.length === 0;
   const [list, setList] = useState(null);
-  const [selectedOption, setSelectedOption] = useState(null);
 
   // Firebase Authentication
   const [user] = useAuthState(auth);
@@ -92,7 +91,6 @@ export default function GetRide() {
           placeholder="PickUp Location"
           setPickUp={setPickUp}
           setDrop={setDrop}
-          setSelectedOption={setSelectedOption}
         />
         <SearchComponent
           id="drop"

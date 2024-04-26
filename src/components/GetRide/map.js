@@ -5,16 +5,12 @@ import markerIconPng from "leaflet/dist/images/marker-icon.png";
 import { Icon } from "leaflet";
 import RoutingMachine from "./RoutingMachine";
 import L from "leaflet";
+import './RoutingMachine.css';
 
 function ResetCenterView({pickup, drop}) {
-  console.log(pickup)
-  if( pickup){
-  console.log(pickup.lat)
-  }
   const map = useMap();
   useEffect(() => {
     if (pickup) {
-      let { lat, lon } = pickup;
       map.setView(L.latLng(pickup.lat, pickup.lon), map.getZoom()+6, {
         animate: true,
       });
@@ -24,7 +20,6 @@ function ResetCenterView({pickup, drop}) {
 }
 
 export default function Map(props) {
-  console.log(props)
   let {pickup,drop} = props;
   return (
     <div>
@@ -73,7 +68,7 @@ export default function Map(props) {
             </Popup>
           </Marker>
         )}
-        {/* <RoutingMachine /> */}
+        {pickup&&drop&&(<RoutingMachine pickup={pickup} drop={drop} />)}
         <ResetCenterView  pickup={pickup} drop={drop} />
       </MapContainer>
     </div>

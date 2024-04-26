@@ -19,13 +19,11 @@ export default function SearchComponent({
   placeholder,
   setPickUp,
   setDrop,
-  setSelectedOption,
 }) {
   const [open, setOpen] = useState(false);
   const [options, setOptions] = useState([]);
   const loading = open && options.length === 0;
   const [list, setList] = useState(null);
-  // const [selectedOption, setSelectedOption] = useState(null);
   const [input, setInput] = useState("");
   useEffect(() => {
     let active = true;
@@ -82,7 +80,6 @@ export default function SearchComponent({
           option.place_id === value.place_id
         }
         onChange={(event, newValue) => {
-          setSelectedOption(newValue);
           if (id == "pickup") {
             setPickUp(newValue);
           } else {
