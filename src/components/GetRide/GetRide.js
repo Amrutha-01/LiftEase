@@ -1,13 +1,11 @@
-import React, { useState, useRef } from "react";
+import React, { useState } from "react";
 import "../../index.css";
 import Demo from "./map";
-import TextField from "@mui/material/TextField";
-import Autocomplete from "@mui/material/Autocomplete";
-import CircularProgress from "@mui/material/CircularProgress";
-import { Divider } from "@mui/material";
 import { useEffect } from "react";
 import SearchComponent from "./searchComp";
-import L from "leaflet";
+import { auth, provider } from "../../firebase";
+import { signInWithPopup, signOut } from "firebase/auth";
+import { useAuthState } from "react-firebase-hooks/auth";
 
 function sleep(duration) {
   return new Promise((resolve) => {
@@ -27,6 +25,9 @@ export default function GetRide() {
   const loading = open && options.length === 0;
   const [list, setList] = useState(null);
   const [selectedOption, setSelectedOption] = useState(null);
+
+  // Firebase Authentication
+  const [user] = useAuthState(auth);
 
   useEffect(() => {
     let active = true;
@@ -64,6 +65,20 @@ export default function GetRide() {
     locationResult("andhra", "jsonv2", 10);
   }, []);
 
+  // Function to handle Google sign-in
+  const signInWithGoogle = async () => {
+    try {
+      await signInWithPopup(auth, provider);
+    } catch (error) {
+      console.error(error.message);
+    }
+  };
+
+  // Function to handle sign-out
+  const handleSignOut = () => {
+    signOut(auth);
+  };
+
   return (
     <div className="get-ride flex flex-row">
       <div className="searching-part flex flex-col">
@@ -80,6 +95,22 @@ export default function GetRide() {
           setDrop={setDrop}
         />
 
+        {/* Conditional rendering based on user authentication */}
+        {user ? (
+          <div className="user-info">
+            <img src={user.photoURL} alt="Profile" className="profile-pic" />
+            <button onClick={handleSignOut}>Sign Out</button>
+          </div>
+        ) : (
+          <button
+            className="bg-red-600 text-white w-40 m-5"
+            onClick={signInWithGoogle}
+          >
+            Sign in with Google
+          </button>
+        )}
+
+        {/* Search button */}
         <button
           className="bg-black text-white w-40 m-5"
           onClick={() => {
