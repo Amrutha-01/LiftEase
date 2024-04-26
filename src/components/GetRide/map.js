@@ -11,11 +11,9 @@ import { useSelector } from "react-redux";
 export default function Map(props) {
   // let {pickup,drop} = props;
   // console.log(pickup,drop)
-  const { pickup} = useSelector(
-    (state) => state.pickup
-  );
-  const {drop}=useSelector((state)=>state.drop)
-  console.log(pickup,drop)
+  const { pickup } = useSelector((state) => state.pickup);
+  const { drop } = useSelector((state) => state.drop);
+  console.log(pickup, drop);
   return (
     <div>
       <MapContainer
@@ -24,7 +22,7 @@ export default function Map(props) {
         zoom={5}
         scrollWheelZoom={false}
         dragging={true}
-        style={{ height: "80vh", width: "60vw" }}
+        style={{ height: "60vh", width: "40vw" }}
         // whenCreated={(map) => setMap(map)}
       >
         <TileLayer
@@ -63,7 +61,7 @@ export default function Map(props) {
             </Popup>
           </Marker>
         )}
-        {pickup&&drop&&(<RoutingMachine pickup={pickup} drop={drop} />)}
+        {pickup && drop && <RoutingMachine pickup={pickup} drop={drop} />}
         {/* <ResetCenterView  pickup={pickup} drop={drop} /> */}
       </MapContainer>
     </div>

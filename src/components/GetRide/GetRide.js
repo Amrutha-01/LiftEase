@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "../../index.css";
-import Map from "./map";
+import Map from "./Map";
 import { useEffect } from "react";
 import { auth, provider } from "../../firebase";
 import { signInWithPopup, signOut } from "firebase/auth";
@@ -91,8 +91,8 @@ export default function GetRide() {
   return (
     <div className="get-ride flex flex-row">
       <div className="searching-part flex flex-col">
-        <PickUp/>
-        <Drop/>
+        <PickUp />
+        <Drop />
         <button className="bg-black text-white w-40 m-5" onClick={handleSearch}>
           {user ? "Search" : "Sign in to Search"}
         </button>
