@@ -1,10 +1,5 @@
 import React, { useState } from "react";
 import "../../index.css";
-import Map from "./map";
-import TextField from "@mui/material/TextField";
-import Autocomplete from "@mui/material/Autocomplete";
-import CircularProgress from "@mui/material/CircularProgress";
-import { Divider } from "@mui/material";
 import Demo from "./map";
 import { useEffect } from "react";
 import SearchComponent from "./searchComp";
@@ -83,6 +78,15 @@ export default function GetRide() {
     signOut(auth);
   };
 
+  // Function to handle search
+  const handleSearch = () => {
+    if (user) {
+      setSearched(!searched);
+    } else {
+      signInWithGoogle();
+    }
+  };
+
   return (
     <div className="get-ride flex flex-row">
       <div className="searching-part flex flex-col">
@@ -99,34 +103,13 @@ export default function GetRide() {
           setDrop={setDrop}
         />
 
-        {/* Conditional rendering based on user authentication */}
-        {user ? (
-          <div className="user-info">
-            <img src={user.photoURL} alt="Profile" className="profile-pic" />
-            <button onClick={handleSignOut}>Sign Out</button>
-          </div>
-        ) : (
-          <button
-            className="bg-red-600 text-white w-40 m-5"
-            onClick={signInWithGoogle}
-          >
-            Sign in with Google
-          </button>
-        )}
-
         {/* Search button */}
-        <button
-          className="bg-black text-white w-40 m-5"
-          onClick={() => {
-            setSearched(!searched);
-          }}
-        >
-          Search
+        <button className="bg-black text-white w-40 m-5" onClick={handleSearch}>
+          {user ? "Search" : "Sign in to Search"}
         </button>
       </div>
 
-      {searched ? <Map pickup={pickup} drop={drop} /> : <Map/>}
-      {/* <Demo pickup={pickup} drop={drop} /> */}
+      {searched ? <Demo pickUp={pickup} drop={drop} /> : <Demo />}
     </div>
   );
 }
