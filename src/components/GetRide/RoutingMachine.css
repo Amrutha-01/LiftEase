@@ -1,3 +1,9 @@
-/* .leaflet-control-container .leaflet-routing-container-hide {
+.leaflet-control-container {
     display: none;
-} */
+}
+.leaflet-pane .leaflet-shadow-pane img{
+    display: none;
+} 
+.leaflet-pane .leaflet-marker-pane .leaflet-marker-draggable{
+    display:none
+}

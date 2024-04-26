@@ -3,6 +3,7 @@ import { createControlComponent } from "@react-leaflet/core";
 import "leaflet-routing-machine";
 import "leaflet-routing-machine/dist/leaflet-routing-machine.css";
 import { useMap } from "react-leaflet";
+import "./RoutingMachine.css"
 
 const RoutingMachine = ({pickup,drop}) => {
     console.log(pickup)

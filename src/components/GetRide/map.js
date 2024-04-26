@@ -6,9 +6,10 @@ import { Icon } from "leaflet";
 import RoutingMachine from "./RoutingMachine";
 import L from "leaflet";
 import { toHaveAccessibleDescription } from "@testing-library/jest-dom/matchers";
+// import { getSearchParamsForLocation } from "react-router-dom/dist/dom";
 import { useSelector } from "react-redux";
 
-export default function Map(props) {
+export default function Map({searched}) {
   // let {pickup,drop} = props;
   // console.log(pickup,drop)
   const { pickup} = useSelector(
@@ -18,7 +19,7 @@ export default function Map(props) {
   console.log(pickup,drop)
   return (
     <div>
-      <MapContainer
+      {searched&&<MapContainer
         center={[51.505, -0.09]}
         // center={[20.505, 79.09]}
         zoom={5}
@@ -65,7 +66,7 @@ export default function Map(props) {
         )}
         {pickup&&drop&&(<RoutingMachine pickup={pickup} drop={drop} />)}
         {/* <ResetCenterView  pickup={pickup} drop={drop} /> */}
-      </MapContainer>
+      </MapContainer>}
     </div>
   );
 }

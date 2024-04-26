@@ -7,6 +7,8 @@ import { signInWithPopup, signOut } from "firebase/auth";
 import { useAuthState } from "react-firebase-hooks/auth";
 import PickUp from "./PickUp";
 import Drop from "./Drop";
+import { useSelector } from "react-redux";
+import "./GetRide.css"
 
 function sleep(duration) {
   return new Promise((resolve) => {
@@ -17,8 +19,8 @@ function sleep(duration) {
 }
 
 export default function GetRide() {
-  const [pickup, setPickUp] = useState("");
-  const [drop, setDrop] = useState("");
+  // const [pickup, setPickUp] = useState("");
+  // const [drop, setDrop] = useState("");
   const [searched, setSearched] = useState(false);
 
   const [open, setOpen] = useState(false);
@@ -28,7 +30,11 @@ export default function GetRide() {
 
   // Firebase Authentication
   const [user] = useAuthState(auth);
-
+  const { pickup} = useSelector(
+    (state) => state.pickup
+  );
+  const {drop}=useSelector((state)=>state.drop)
+  console.log(pickup,drop)
   useEffect(() => {
     let active = true;
     if (!loading) {
@@ -93,12 +99,12 @@ export default function GetRide() {
       <div className="searching-part flex flex-col">
         <PickUp/>
         <Drop/>
-        <button className="bg-black text-white w-40 m-5" onClick={handleSearch}>
+        <button className="bg-black text-white w-40" onClick={handleSearch}>
           {user ? "Search" : "Sign in to Search"}
         </button>
       </div>
 
-      {searched ? <Map pickUp={pickup} drop={drop} /> : <Map />}
+      {searched&&pickup&&drop? <Map searched={searched} /> : <Map />}
     </div>
   );
 }
