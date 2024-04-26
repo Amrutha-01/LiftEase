@@ -8,6 +8,7 @@ import L from "leaflet";
 import './RoutingMachine.css';
 
 function ResetCenterView({pickup, drop}) {
+  
   const map = useMap();
   useEffect(() => {
     if (pickup) {
