@@ -17,7 +17,7 @@ export default function Navbar() {
     <div className="navbar">
       <nav>
         <ul className="flex flex-row justify-between m-5 mx-7">
-          <li style={{ textDecoration: "none", listStyleType: "none" }}>
+          <li style={{ textDecoration: "none", listStyleType: "none" }} >
             LiftEase
           </li>
           <li>

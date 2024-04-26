@@ -1,11 +1,11 @@
 import React from "react";
-import Demo from "./map";
 import TextField from "@mui/material/TextField";
 import Autocomplete from "@mui/material/Autocomplete";
 import CircularProgress from "@mui/material/CircularProgress";
 import { Divider } from "@mui/material";
 import { useEffect, useState } from "react";
-import SearchComp from "./searchComp";
+import { useDispatch } from "react-redux";
+import { setDrop } from "../../redux/DropSlice";
 
 function sleep(duration) {
   return new Promise((resolve) => {
@@ -14,17 +14,17 @@ function sleep(duration) {
     }, duration);
   });
 }
-export default function SearchComponent({
-  id,
-  placeholder,
-  setPickUp,
-  setDrop,
-}) {
+
+export default function Drop() {
   const [open, setOpen] = useState(false);
   const [options, setOptions] = useState([]);
   const loading = open && options.length === 0;
   const [list, setList] = useState(null);
   const [input, setInput] = useState("");
+//   const [drop, setDrop] = useState("")
+  const dispatch=useDispatch();
+
+  // console.log("SearchComponent rendered with:", {  pickup,, input });
   useEffect(() => {
     let active = true;
     if (!loading) {
@@ -32,7 +32,7 @@ export default function SearchComponent({
     }
     (async () => {
       await sleep(1e3);
-      if (active) {
+      if (active && list) {
         setOptions([...list]);
       }
     })();
@@ -50,8 +50,6 @@ export default function SearchComponent({
 
   useEffect(() => {
     const locationResult = async (query, format, limit) => {
-      // setLoading(true);
-      //   await sleep(1e3);
       await fetch(
         `https://nominatim.openstreetmap.org/search?addressdetails=1&q=${query}&format=${format}&limit=${limit}`
       )
@@ -63,11 +61,10 @@ export default function SearchComponent({
     };
     locationResult(input, "jsonv2", 10);
   }, [input]);
-
   return (
-    <div className="searchcomp">
+    <div className="drop">
       <Autocomplete
-        id={id}
+        id='drop'
         sx={{ width: 300 }}
         open={open}
         onOpen={() => {
@@ -76,16 +73,14 @@ export default function SearchComponent({
         onClose={() => {
           setOpen(false);
         }}
-        isOptionEqualToValue={(option, value) =>
-          option.place_id === value.place_id
-        }
-        onChange={(event, newValue) => {
-          if (id == "pickup") {
-            setPickUp(newValue);
-          } else {
-            setDrop(newValue);
+        isOptionEqualToValue={(option, value) => {
+          if (option && value) {
+            return option.place_id === value.place_id;
           }
-          // Update the selected option state
+        }}
+        onChange={(event, newValue) => {
+            // setDrop(newValue);
+            dispatch(setDrop(newValue))
         }}
         getOptionLabel={(option) => option.display_name}
         options={options}
@@ -102,7 +97,7 @@ export default function SearchComponent({
               setInput(e.target.value);
             }}
             {...params}
-            label={placeholder}
+            label="Dropp Location"
             InputProps={{
               ...params.InputProps,
               endAdornment: (
@@ -116,7 +111,7 @@ export default function SearchComponent({
             }}
           />
         )}
-      />
+      />{" "}
     </div>
   );
 }

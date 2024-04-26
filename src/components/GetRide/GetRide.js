@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import "../../index.css";
-import Demo from "./map";
+import Map from "./map";
 import { useEffect } from "react";
-import SearchComponent from "./searchComp";
 import { auth, provider } from "../../firebase";
 import { signInWithPopup, signOut } from "firebase/auth";
 import { useAuthState } from "react-firebase-hooks/auth";
+import PickUp from "./PickUp";
+import Drop from "./Drop";
 
 function sleep(duration) {
   return new Promise((resolve) => {
@@ -90,26 +91,14 @@ export default function GetRide() {
   return (
     <div className="get-ride flex flex-row">
       <div className="searching-part flex flex-col">
-        <SearchComponent
-          id="pickup"
-          placeholder="PickUp Location"
-          setPickUp={setPickUp}
-          setDrop={setDrop}
-        />
-        <SearchComponent
-          id="drop"
-          placeholder="Drop Location"
-          setPickUp={setPickUp}
-          setDrop={setDrop}
-        />
-
-        {/* Search button */}
+        <PickUp/>
+        <Drop/>
         <button className="bg-black text-white w-40 m-5" onClick={handleSearch}>
           {user ? "Search" : "Sign in to Search"}
         </button>
       </div>
 
-      {searched ? <Demo pickUp={pickup} drop={drop} /> : <Demo />}
+      {searched ? <Map pickUp={pickup} drop={drop} /> : <Map />}
     </div>
   );
 }
