@@ -19,6 +19,7 @@
 
 /* Navigation Links */
 .nav-links {
+  font-size: 18px;
   align-items: center;
   display: flex;
   list-style: none;
@@ -37,8 +38,8 @@
 }
 
 .nav-link:hover {
-  color: #ffffff;
-  background-color: #333333;
+  color: #000000; /* Change text color to black */
+  background-color: #ffffff; /* Change background color to white */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adding a subtle box-shadow */
 }
 
@@ -48,14 +49,16 @@
 }
 
 .profile-pic {
-  width: 40px;
-  height: 40px;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
   cursor: pointer;
+  border: 2px solid #ffffff; /* Add white border */
 }
 
 /* Sign-out Button */
 .sign-out-btn {
+  display: flex;
   position: absolute;
   top: 50%;
   right: 0;

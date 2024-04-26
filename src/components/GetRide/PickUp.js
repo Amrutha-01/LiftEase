@@ -6,6 +6,8 @@ import { Divider } from "@mui/material";
 import { useEffect, useState } from "react";
 import { setpickUp } from "../../redux/PickUpSlice";
 import { useDispatch } from "react-redux";
+import "./PickUp.css";
+
 function sleep(duration) {
   return new Promise((resolve) => {
     setTimeout(() => {
