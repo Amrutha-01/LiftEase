@@ -2,10 +2,16 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "../../firebase";
+import { signOut } from "firebase/auth";
 
 export default function Navbar() {
   // Firebase Authentication
   const [user] = useAuthState(auth);
+
+  // Function to handle sign-out
+  const handleSignOut = () => {
+    signOut(auth);
+  };
 
   return (
     <div className="navbar">
@@ -23,7 +29,15 @@ export default function Navbar() {
           {/* Conditional rendering for user authentication */}
           {user ? (
             <li>
-              <img src={user.photoURL} alt="Profile" className="profile-pic" />
+              {/* Sign-out option */}
+              <button onClick={handleSignOut}>Sign Out</button>
+            </li>
+          ) : null}
+          {/* Conditional rendering for user authentication */}
+          {user ? (
+            <li>
+              {/* User profile picture */}
+              <img src={user.photoURL} alt="Profile" className="br-50" />
             </li>
           ) : null}
         </ul>
