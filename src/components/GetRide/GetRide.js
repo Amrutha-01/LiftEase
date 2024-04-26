@@ -1,6 +1,6 @@
 import React, { useState, useRef } from "react";
 import "../../index.css";
-import Demo from "./map";
+import Map from "./map";
 import TextField from "@mui/material/TextField";
 import Autocomplete from "@mui/material/Autocomplete";
 import CircularProgress from "@mui/material/CircularProgress";
@@ -27,7 +27,7 @@ export default function GetRide() {
   const loading = open && options.length === 0;
   const [list, setList] = useState(null);
   const [selectedOption, setSelectedOption] = useState(null);
-
+  console.log(pickup,drop)
   useEffect(() => {
     let active = true;
     if (!loading) {
@@ -72,12 +72,14 @@ export default function GetRide() {
           placeholder="PickUp Location"
           setPickUp={setPickUp}
           setDrop={setDrop}
+          setSelectedOption={setSelectedOption}
         />
         <SearchComponent
           id="drop"
           placeholder="Drop Location"
           setPickUp={setPickUp}
           setDrop={setDrop}
+          setSelectedOption={setSelectedOption}
         />
 
         <button
@@ -90,7 +92,8 @@ export default function GetRide() {
         </button>
       </div>
 
-      {searched ? <Demo pickUp={pickup} drop={drop} /> : <Demo />}
+      {searched ? <Map pickup={pickup} drop={drop} /> : <Map/>}
+      {/* <Demo pickup={pickup} drop={drop} /> */}
     </div>
   );
 }
