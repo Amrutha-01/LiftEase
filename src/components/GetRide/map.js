@@ -1,4 +1,4 @@
-import React, { useRef ,useEffect} from "react";
+import React, { useRef ,useEffect,useState} from "react";
 import { MapContainer, TileLayer, useMap, Marker, Popup } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import markerIconPng from "leaflet/dist/images/marker-icon.png";
@@ -6,15 +6,22 @@ import { Icon } from "leaflet";
 import RoutingMachine from "./RoutingMachine";
 
 export default function Demo({pickUp,drop}) {
+  const maps = {
+    base: "https://tiles.stadiamaps.com/tiles/osm_bright/{z}/{x}/{y}{r}.png"
+  };
+  const [map, setMap] = useState(null);
+
   return (
+    
     <div>
       <MapContainer
         // center={[51.505, -0.09]}
-        center={[50.505, -0.09]}
-        zoom={6}
+        center={[20.505, 79.09]}
+        zoom={5}
         scrollWheelZoom={false}
         dragging={true}
         style={{ height: "80vh", width: "60vw" }}
+        whenCreated={map => setMap(map)}
       >
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
@@ -53,11 +60,13 @@ export default function Demo({pickUp,drop}) {
           </Popup>
         </Marker>
       )}
-      <RoutingMachine waypoints={[
-          [33.52001088075479, 36.26829385757446],
-          [33.50546582848033, 36.29547681726967]
-        ]}
-        lineOptions={{ styles: [{ color: "#6FA1EC", weight: 4 }] }}/>
+      <RoutingMachine 
+      // waypoints={[
+      //     [33.52001088075479, 36.26829385757446],
+      //     [33.50546582848033, 36.29547681726967]
+      //   ]}
+      //   lineOptions={{ styles: [{ color: "#6FA1EC", weight: 4 }] }}
+        />
       </MapContainer>
     </div>
   );
