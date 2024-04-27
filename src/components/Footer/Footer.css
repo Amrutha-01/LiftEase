@@ -1,0 +1,49 @@
+.Footer {
+    margin-top: 3%;
+    padding-bottom: 5%;
+  padding-top: 3%;
+  padding-left: 4vw;
+  padding-right: 4vw;
+  display: flex;
+  justify-content: space-between;
+  background-color: black;
+  color: white;
+
+}
+.about-section {
+  width: 30vw;
+}
+.about-section p {
+  text-align: justify;
+}
+.about-section h3,
+.services-section h3,
+.contactus-section h3 {
+  font-size: 35px;
+  text-align: start;
+}
+.contactus-section nav ul li {
+  width: 15vw;
+  display: flex;
+  justify-content: space-between;
+  text-decoration: none;
+  list-style-type: none;
+  text-align: left;
+}
+.services-section h2 {
+  font-size: 110px;
+}
+.horizontal {
+  border-bottom: 1.5px solid rgb(113, 112, 112);
+  width: 120px;
+}
+.socials{
+    width: 25vw;
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.services-section h3{
+    margin-left: 30%;
+}

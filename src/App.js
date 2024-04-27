@@ -7,6 +7,7 @@ import GetRide from
 "./components/GetRide/GetRidePage/GetRide";
 import GiveRide from "./components/GiveRide/GiveRide";
 import LEWorkGet from "./components/LEWorkGet/LEWorkGet";
+import Footer from "./components/Footer/Footer";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
                 <Navbar />
                 <GetRide />
                 <LEWorkGet/>
+                <Footer/>
               </div>
             }
           />
@@ -30,6 +32,8 @@ function App() {
               <div>
                 <Navbar />
                 <GiveRide />
+                <LEWorkGet/>
+                <Footer/>
               </div>
             }
           />
