@@ -1,6 +1,5 @@
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import "./App.css";
-// import LandingPage from './components/LandingPage/LandingPage';
 import MainPage from "./components/MainPage/MainPage";
 import Navbar from "./components/Navbar/Navbar";
 import GetRide from "./components/GetRide/GetRidePage/GetRide";
@@ -15,8 +14,9 @@ import img3 from "./components/images/location.svg";
 import first from "./components/images/1st box.png";
 import mid from "./components/images/middle box.jpeg";
 import last from "./components/images/last box.jpeg";
-import money from "./components/images/1st box.png";
-
+import free from "./components/images/free ride.png";
+import companion from "./components/images/companion (1).jpeg";
+import fossil from "./components/images/fossil fuels.jpeg";
 function App() {
   const getRideData = {
     title: "How LiftEase Works?",
@@ -25,17 +25,18 @@ function App() {
     cardsData: [
       {
         cardTitle: "FIND",
-        cardDescription: "Earn credit points for giving a lift",
+        cardDescription:
+          "Find a person who is going on the same route as you so that they can give you a lift.",
         CardImg: first,
       },
       {
         cardTitle: "HOP ON",
-        cardDescription: "Earn credit points for giving a lift",
+        cardDescription: "Hop onto your ride when they arrive",
         CardImg: mid,
       },
       {
-        cardTitle: "EARN",
-        cardDescription: "Earn credit points for giving a lift",
+        cardTitle: "ARRIVE",
+        cardDescription: "Get to your desired destination safely for free",
         CardImg: last,
       },
     ],
@@ -65,22 +66,22 @@ function App() {
   };
   const getRideScroll = [
     {
-      heading: "Track your each Rupee with Bills",
+      heading: "Free and Hassle free Rides",
       description:
-        "Securely Pool Bills for Smooth Transactions and Strengthen Friendships",
-      lappy_img: img1,
+        "Enjoy cost-free and effortless transportation with our ride-sharing platform.",
+      lappy_img: free,
     },
     {
-      heading: "Enhance Financial Bonds",
+      heading: "Discover compatible travel companions",
       description:
-        "Get your money back with the periodic interest by enabling Financial bonds",
-      lappy_img: img2,
+        "Find the perfect travel buddy for your journey with LiftEase.",
+      lappy_img: companion,
     },
     {
-      heading: "Split Expenses Smoothly",
+      heading: "Be a traffic hero and environmental champion with us",
       description:
-        "Effortlessly divide and manage expenses among friends while maintaining transparency and trust. Bills for Smooth Transactions and Strengthen Friendships",
-      lappy_img: img3,
+        "Join us in alleviating traffic congestion and reducing fossil fuel consumption, one ride at a time.",
+      lappy_img: fossil,
     },
   ];
   const giveRideScroll = [
@@ -114,7 +115,7 @@ function App() {
               <div>
                 <Navbar />
                 <GetRide />
-                <MobileScroll scrollData={getRideData} />
+                <MobileScroll scrollData={getRideScroll} />
                 <LEWorkGet data={getRideData} />
                 <Footer />
               </div>

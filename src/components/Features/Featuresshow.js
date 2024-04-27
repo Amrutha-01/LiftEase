@@ -2,8 +2,7 @@ import { React, useState } from "react";
 import "./Featureshow.css";
 import ScreenText from "./ScreenText.js";
 
-
-const MobileScroll = ({scrollData}) => {
+const MobileScroll = ({ scrollData }) => {
   const [currentImg, setCurrentImg] = useState(0);
   return (
     <div className="max-width flex mobile-scroll">

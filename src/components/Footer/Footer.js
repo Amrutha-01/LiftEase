@@ -5,10 +5,13 @@ import {
   faHouse,
   faEnvelope,
   faPhoneVolume,
-
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faInstagram,faLinkedin,faXTwitter } from "@fortawesome/free-brands-svg-icons";
+import {
+  faInstagram,
+  faLinkedin,
+  faXTwitter,
+} from "@fortawesome/free-brands-svg-icons";
 
 export default function Footer() {
   return (
@@ -16,20 +19,30 @@ export default function Footer() {
       <div className="about-section">
         <h3>About LiftEase</h3>
         <p>
-          Culpa duis exercitation aliquip aliquip amet. Proident reprehenderit
-          excepteur occaecat id ea fugiat elit pariatur laborum duis proident.
-          Reprehenderit incididunt exercitation non amet laboris aute.{" "}
+          What if I told you there's a solution that not only saves you money
+          and time but also helps reduce traffic congestion and environmental
+          impact? Allow me to introduce you to LiftEase, a revolutionary
+          ride-sharing platform that's changing the way people commute{" "}
         </p>
         <div className="socials">
-        <div className='horizontal'></div>
-          <FontAwesomeIcon icon={faLinkedin} style={{ color: "#ffffff" ,height:'25px'}} />
-          <FontAwesomeIcon icon={faXTwitter} style={{ color: "#ffffff" ,height:'25px'}} />
-          <FontAwesomeIcon icon={faInstagram} style={{ color: "#ffffff" ,height:'25px'}} />
-          <div className='horizontal'></div>
+          <div className="horizontal"></div>
+          <FontAwesomeIcon
+            icon={faLinkedin}
+            style={{ color: "#ffffff", height: "25px" }}
+          />
+          <FontAwesomeIcon
+            icon={faXTwitter}
+            style={{ color: "#ffffff", height: "25px" }}
+          />
+          <FontAwesomeIcon
+            icon={faInstagram}
+            style={{ color: "#ffffff", height: "25px" }}
+          />
+          <div className="horizontal"></div>
         </div>
       </div>
       <h2 id="logo">LOGO</h2>
-      
+
       <div className="contactus-section">
         <h3>Contact Us</h3>
         <nav>
@@ -52,18 +65,18 @@ export default function Footer() {
           </ul>
         </nav>
         <div className="services-section">
-        <h3>Services</h3>
-        <nav>
-          <ul>
-            <li>
-              <Link to="/getRide">Get Lift</Link>
-            </li>
-            <li>
-              <Link to="/giveRide">Give Lift</Link>
-            </li>
-          </ul>
-        </nav>
-      </div>
+          <h3>Services</h3>
+          <nav>
+            <ul>
+              <li>
+                <Link to="/getRide">Get Lift</Link>
+              </li>
+              <li>
+                <Link to="/giveRide">Give Lift</Link>
+              </li>
+            </ul>
+          </nav>
+        </div>
       </div>
     </div>
   );

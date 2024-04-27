@@ -25,16 +25,17 @@
   height: 120px;
   width: 120px;
 }
-.card h3{
-    font-weight: 550;
-    font-size: 25px;
+.card h3 {
+  font-weight: 550;
+  font-size: 25px;
 }
-.card{
-    padding: 2%;
-    border: 3px solid black;
-    border-radius: 23px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    box-shadow: 10px 10px;
+.card {
+  padding: 2%;
+  border: 3px solid black;
+  border-radius: 23px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 10px 10px;
+  width: 20vw;
 }
