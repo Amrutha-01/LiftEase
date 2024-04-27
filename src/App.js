@@ -12,49 +12,54 @@ import money from "./components/images/Designer (2).png";
 import img1 from "./components/images/Designer (2) (7).svg";
 import img2 from "./components/images/Saving money-amico.svg";
 import img3 from "./components/images/location.svg";
+import first from "./components/images/1st box.png";
+import mid from "./components/images/middle box.jpeg";
+import last from "./components/images/last box.jpeg";
+import money from "./components/images/1st box.png";
 
 function App() {
   const getRideData = {
     title: "How LiftEase Works?",
     description:
-      "Tempor reprehenderit nostrud anim aute pariatur elit cillum excepteur ad culpa nisi. Eu amet anim deserunt veniam irure excepteur laborum in. Reprehenderit consequat adipisicing eu nostrud et pariatur eu id et nisi voluptate. Voluptate minim ullamco nostrud adipisicing sit officia cupidatat do non labore dolore adipisicing cupidatat. Pariatur labore sunt laboris anim laborum non.",
+      "Getting a lift with LiftEase is simple and hassle-free! First, just hop onto our website and click on 'Find Rides.' You'll instantly see a list of available rides heading in your desired direction. Browse through the options, choose the one that suits you best, and voila! You're all set to hop into your ride and reach your destination—all for free. Say goodbye to expensive cab fares and waiting times. With LiftEase, getting where you need to go has never been easier!",
     cardsData: [
       {
-        cardTitle: "EARN",
+        cardTitle: "FIND",
         cardDescription: "Earn credit points for giving a lift",
-        CardImg: money,
+        CardImg: first,
+      },
+      {
+        cardTitle: "HOP ON",
+        cardDescription: "Earn credit points for giving a lift",
+        CardImg: mid,
       },
       {
         cardTitle: "EARN",
         cardDescription: "Earn credit points for giving a lift",
-        CardImg: money,
-      },
-      {
-        cardTitle: "EARN",
-        cardDescription: "Earn credit points for giving a lift",
-        CardImg: money,
+        CardImg: last,
       },
     ],
   };
   const giveRideData = {
-    title: "How LiftEase Works?",
+    title: "How to get Rewards?",
+
     description:
       "Tempor reprehenderit nostrud anim aute pariatur elit cillum excepteur ad culpa nisi. Eu amet anim deserunt veniam irure excepteur laborum in. Reprehenderit consequat adipisicing eu nostrud et pariatur eu id et nisi voluptate. Voluptate minim ullamco nostrud adipisicing sit officia cupidatat do non labore dolore adipisicing cupidatat. Pariatur labore sunt laboris anim laborum non.",
     cardsData: [
       {
         cardTitle: "EARN",
         cardDescription: "Earn credit points for giving a lift",
-        CardImg: money
+        CardImg: money,
       },
       {
         cardTitle: "EARN",
         cardDescription: "Earn credit points for giving a lift",
-        CardImg: money
+        CardImg: money,
       },
       {
         cardTitle: "EARN",
         cardDescription: "Earn credit points for giving a lift",
-        CardImg: money
+        CardImg: money,
       },
     ],
   };
@@ -109,7 +114,7 @@ function App() {
               <div>
                 <Navbar />
                 <GetRide />
-                <MobileScroll scrollData={getRideData}/>
+                <MobileScroll scrollData={getRideData} />
                 <LEWorkGet data={getRideData} />
                 <Footer />
               </div>
@@ -121,7 +126,7 @@ function App() {
               <div>
                 <Navbar />
                 <GiveRide />
-                <MobileScroll scrollData={giveRideScroll}/>
+                <MobileScroll scrollData={giveRideScroll} />
                 <LEWorkGet data={giveRideData} />
                 <Footer />
               </div>
