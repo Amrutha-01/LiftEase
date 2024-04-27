@@ -26,3 +26,17 @@
     height: 80vh;
     margin-right: 10vw;
 }
+#tagline-head{
+    font-size: 70px;
+    text-align: left;
+    color: black;
+}
+#tagline{
+    text-align: left;
+    margin-left: 2px;
+}
+#search{
+    width: 28.5vw;
+    border-radius: 5px;
+    height: 8vh;
+}

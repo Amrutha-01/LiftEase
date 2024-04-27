@@ -33,7 +33,7 @@ export default function GetRide() {
   const [user] = useAuthState(auth);
   const { pickup } = useSelector((state) => state.pickup);
   const { drop } = useSelector((state) => state.drop);
-  
+
   useEffect(() => {
     let active = true;
     if (!loading) {
@@ -96,9 +96,11 @@ export default function GetRide() {
   return (
     <div className="get-ride flex flex-row">
       <div className="searching-part flex flex-col">
+        <h1 id="tagline-head">Find a Lift</h1>
+        <p id="tagline">Hop in and enjoy a free ride!</p>
         <PickUp />
         <Drop />
-        <button className="bg-black text-white w-40 m-5" onClick={handleSearch}>
+        <button className="bg-black text-white w-40" onClick={handleSearch} id="search">
           {user ? "Search" : "Sign in to Search"}
         </button>
       </div>

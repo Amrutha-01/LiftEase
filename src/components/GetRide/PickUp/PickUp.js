@@ -64,6 +64,7 @@ export default function PickUp() {
   }, [input]);
   return (
     <div className="pickup">
+      
       <img src={location} className="location" />
       <Autocomplete
         id="pickup"
