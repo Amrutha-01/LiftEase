@@ -9,7 +9,6 @@ import LEWorkGet from "./components/LEWorkGet/LEWorkGet";
 import MobileScroll from "./components/Features/Featuresshow";
 import money from "./components/images/Designer (2).png";
 import img1 from "./components/images/Designer (2) (7).svg";
-import img2 from "./components/images/Saving money-amico.svg";
 import img3 from "./components/images/location.svg";
 import first from "./components/images/1st box.png";
 import mid from "./components/images/middle box.jpeg";
@@ -17,6 +16,11 @@ import last from "./components/images/last box.jpeg";
 import free from "./components/images/free ride.png";
 import companion from "./components/images/companion (1).jpeg";
 import fossil from "./components/images/fossil fuels.jpeg";
+import reward from "./components/images/rewards.png";
+import rides from "./components/images/RIDE.jpeg";
+import travel from "./components/images/travelling.png";
+import pick from "./components/images/picking up.png";
+
 function App() {
   const getRideData = {
     title: "How LiftEase Works?",
@@ -45,22 +49,22 @@ function App() {
     title: "How to get Rewards?",
 
     description:
-      "Tempor reprehenderit nostrud anim aute pariatur elit cillum excepteur ad culpa nisi. Eu amet anim deserunt veniam irure excepteur laborum in. Reprehenderit consequat adipisicing eu nostrud et pariatur eu id et nisi voluptate. Voluptate minim ullamco nostrud adipisicing sit officia cupidatat do non labore dolore adipisicing cupidatat. Pariatur labore sunt laboris anim laborum non.",
+      "Getting rewards with LiftEase is easy and rewarding! Simply start by visiting our website and clicking on the 'Give Lifts' option. Enter your ride details, including your starting point, destination, and preferred route. Once you're on your way, you'll receive notifications if someone is in need of a lift along your route. Offer a safe and comfortable ride to your fellow travelers, drop them off at their destination, and earn rewards for your generosity. It's that simple! Join our community of drivers today and start making a positive impact while earning rewards with LiftEase.",
     cardsData: [
       {
-        cardTitle: "EARN",
-        cardDescription: "Earn credit points for giving a lift",
-        CardImg: money,
+        cardTitle: "FIND",
+        cardDescription: "Find the person who selected you to give them a lift",
+        CardImg: pick,
+      },
+      {
+        cardTitle: "RIDE",
+        cardDescription: "Give a safe and secure ride to their destination",
+        CardImg: travel,
       },
       {
         cardTitle: "EARN",
-        cardDescription: "Earn credit points for giving a lift",
-        CardImg: money,
-      },
-      {
-        cardTitle: "EARN",
-        cardDescription: "Earn credit points for giving a lift",
-        CardImg: money,
+        cardDescription: "Earn credit points for giving a safe lift",
+        CardImg: reward,
       },
     ],
   };
@@ -89,19 +93,19 @@ function App() {
       heading: "Track your each Rupee with Bills",
       description:
         "Securely Pool Bills for Smooth Transactions and Strengthen Friendships",
-      lappy_img: img1,
+      lappy_img: rides,
     },
     {
-      heading: "Enhance Financial Bonds",
+      heading: "Discover compatible travel companions",
       description:
-        "Get your money back with the periodic interest by enabling Financial bonds",
-      lappy_img: img2,
+        "Find the perfect travel buddy for your journey with LiftEase.",
+      lappy_img: companion,
     },
     {
-      heading: "Split Expenses Smoothly",
+      heading: "Earn Credit Points to Use",
       description:
-        "Effortlessly divide and manage expenses among friends while maintaining transparency and trust. Bills for Smooth Transactions and Strengthen Friendships",
-      lappy_img: img3,
+        "Earn Credit points with respect to the results and use them to redeem produts or discount coupons",
+      lappy_img: reward,
     },
   ];
   return (
