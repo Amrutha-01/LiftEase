@@ -47,7 +47,7 @@ export default function Footer() {
         <nav>
           <ul>
             <li>
-              <FontAwesomeIcon icon={faHouse} style={{ color: "#ffffff" }} />
+              <FontAwesomeIcon icon={faHouse} style={{ color: "#ffffff" ,height:'40px'}} />
               New York,NY 2333, US
             </li>
             <li>

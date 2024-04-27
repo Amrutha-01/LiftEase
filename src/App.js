@@ -4,6 +4,7 @@ import "./App.css";
 import MainPage from "./components/MainPage/MainPage";
 import Navbar from "./components/Navbar/Navbar";
 import GetRide from "./components/GetRide/GetRidePage/GetRide";
+import Footer from "./components/Footer/Footer";
 import GiveRide from "./components/GiveRide/GiveRide";
 import LEWorkGet from "./components/LEWorkGet/LEWorkGet";
 import MobileScroll from "./components/Features/Featuresshow";
@@ -22,6 +23,7 @@ function App() {
                 <GetRide />
                 <MobileScroll />
                 <LEWorkGet />
+                <Footer/>
               </div>
             }
           />
@@ -32,6 +34,7 @@ function App() {
                 <Navbar />
                 <GiveRide />
                 <LEWorkGet />
+                <Footer/>
               </div>
             }
           />
