@@ -3,10 +3,10 @@ import "./App.css";
 // import LandingPage from './components/LandingPage/LandingPage';
 import MainPage from "./components/MainPage/MainPage";
 import Navbar from "./components/Navbar/Navbar";
-import GetRide from 
-"./components/GetRide/GetRidePage/GetRide";
+import GetRide from "./components/GetRide/GetRidePage/GetRide";
 import GiveRide from "./components/GiveRide/GiveRide";
 import LEWorkGet from "./components/LEWorkGet/LEWorkGet";
+import MobileScroll from "./components/Features/Featuresshow";
 
 function App() {
   return (
@@ -20,7 +20,8 @@ function App() {
               <div>
                 <Navbar />
                 <GetRide />
-                <LEWorkGet/>
+                <MobileScroll />
+                <LEWorkGet />
               </div>
             }
           />
@@ -30,6 +31,7 @@ function App() {
               <div>
                 <Navbar />
                 <GiveRide />
+                <LEWorkGet />
               </div>
             }
           />
