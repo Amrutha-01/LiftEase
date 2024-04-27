@@ -94,7 +94,7 @@ export default function GiveRide() {
     <div className="get-ride flex flex-row">
       <div className="searching-part flex flex-col">
         <h1 id="tagline-head">Give Lift</h1>
-        <p id="tagline">Hop in and enjoy a free ride!</p>
+        <p id="tagline">Enjoy your rewards!</p>
         <PickUp />
         <Drop />
         <button className="bg-black text-white w-40" onClick={handleSearch} id="search">

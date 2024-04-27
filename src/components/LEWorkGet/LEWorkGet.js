@@ -1,32 +1,26 @@
-import React from 'react'
-import "./LEWorkGet.css"
-import money from "../images/Saving money-amico.png"
+import React from "react";
+import "./LEWorkGet.css";
 
-export default function LEWorkGet() {
+export default function LEWorkGet(props) {
+  const { data } = props;
+  const { title, description, cardsData } = data;
+
   return (
-    <div className='LEWorkGet'>
-      <div className='top-part'>
-        <h1>How LifeEase Works?</h1>
-        <div className='vertical'></div>
-        <p>Tempor reprehenderit nostrud anim aute pariatur elit cillum excepteur ad culpa nisi. Eu amet anim deserunt veniam irure excepteur laborum in. Reprehenderit consequat adipisicing eu nostrud et pariatur eu id et nisi voluptate. Voluptate minim ullamco nostrud adipisicing sit officia cupidatat do non labore dolore adipisicing cupidatat. Pariatur labore sunt laboris anim laborum non.</p>
+    <div className="LEWorkGet">
+      <div className="top-part">
+        <h1>{title}</h1>
+        <div className="vertical"></div>
+        <p>{description}</p>
       </div>
-      <div className='bottom-part'>
-        <div className='card'>
-            <img src={money}  className='bottom-part-img'/>
-            <h3>EARN</h3>
-            <p>Earn credit points for giving a lift</p>
-        </div>
-        <div className='card'>
-            <img src={money} height="120px" className='bottom-part-img'/>
-            <h3>EARN</h3>
-            <p>Earn credit points for giving a lift</p>
-        </div>
-        <div className='card'>
-            <img src={money} height="120px" className='bottom-part-img'/>
-            <h3>EARN</h3>
-            <p>Earn credit points for giving a lift</p>
-        </div>
+      <div className="bottom-part">
+        {cardsData.map((item) => (
+          <div className="card">
+            <img src={item.CardImg} className="bottom-part-img" />
+            <h3>{item.cardTitle}</h3>
+            <p>{item.cardDescription}</p>
+          </div>
+        ))}
       </div>
     </div>
-  )
+  );
 }

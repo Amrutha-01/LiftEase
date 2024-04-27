@@ -8,8 +8,53 @@ import Footer from "./components/Footer/Footer";
 import GiveRide from "./components/GiveRide/GiveRide";
 import LEWorkGet from "./components/LEWorkGet/LEWorkGet";
 import MobileScroll from "./components/Features/Featuresshow";
+import money from "./components/images/Designer (2).png";
 
 function App() {
+  const getRideData = {
+    title: "How LifeEase Works?",
+    description:
+      "Tempor reprehenderit nostrud anim aute pariatur elit cillum excepteur ad culpa nisi. Eu amet anim deserunt veniam irure excepteur laborum in. Reprehenderit consequat adipisicing eu nostrud et pariatur eu id et nisi voluptate. Voluptate minim ullamco nostrud adipisicing sit officia cupidatat do non labore dolore adipisicing cupidatat. Pariatur labore sunt laboris anim laborum non.",
+    cardsData: [
+      {
+        cardTitle: "EARN",
+        cardDescription: "Earn credit points for giving a lift",
+        CardImg: money,
+      },
+      {
+        cardTitle: "EARN",
+        cardDescription: "Earn credit points for giving a lift",
+        CardImg: money,
+      },
+      {
+        cardTitle: "EARN",
+        cardDescription: "Earn credit points for giving a lift",
+        CardImg: money,
+      },
+    ],
+  };
+  const giveRideData = {
+    title: "How LifeEase Works?",
+    description:
+      "Tempor reprehenderit nostrud anim aute pariatur elit cillum excepteur ad culpa nisi. Eu amet anim deserunt veniam irure excepteur laborum in. Reprehenderit consequat adipisicing eu nostrud et pariatur eu id et nisi voluptate. Voluptate minim ullamco nostrud adipisicing sit officia cupidatat do non labore dolore adipisicing cupidatat. Pariatur labore sunt laboris anim laborum non.",
+    cardsData: [
+      {
+        cardTitle: "EARN",
+        cardDescription: "Earn credit points for giving a lift",
+        CardImg: money
+      },
+      {
+        cardTitle: "EARN",
+        cardDescription: "Earn credit points for giving a lift",
+        CardImg: money
+      },
+      {
+        cardTitle: "EARN",
+        cardDescription: "Earn credit points for giving a lift",
+        CardImg: money
+      },
+    ],
+  };
   return (
     <div className="App">
       <Router>
@@ -22,8 +67,8 @@ function App() {
                 <Navbar />
                 <GetRide />
                 <MobileScroll />
-                <LEWorkGet />
-                <Footer/>
+                <LEWorkGet data={getRideData} />
+                <Footer />
               </div>
             }
           />
@@ -33,8 +78,9 @@ function App() {
               <div>
                 <Navbar />
                 <GiveRide />
-                <LEWorkGet />
-                <Footer/>
+                <MobileScroll />
+                <LEWorkGet data={giveRideData} />
+                <Footer />
               </div>
             }
           />

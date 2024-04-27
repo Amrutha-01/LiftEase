@@ -1,6 +1,6 @@
 .Footer {
-    margin-top: 3%;
-    padding-bottom: 5%;
+  margin-top: 3%;
+  padding-bottom: 5%;
   padding-top: 3%;
   padding-left: 4vw;
   padding-right: 4vw;
@@ -8,7 +8,7 @@
   justify-content: space-between;
   background-color: black;
   color: white;
-
+  align-items: center;
 }
 .about-section {
   width: 30vw;
@@ -30,20 +30,50 @@
   list-style-type: none;
   text-align: left;
 }
-.services-section h2 {
+#logo {
   font-size: 110px;
 }
 .horizontal {
   border-bottom: 1.5px solid rgb(113, 112, 112);
   width: 120px;
 }
-.socials{
-    width: 25vw;
-    margin-top: 30px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.socials {
+  width: 27vw;
+  margin-top: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
-.services-section h3{
-    margin-left: 30%;
+.services-section h3 {
+  /* margin-left: 30%; */
+  font-weight: 700;
+}
+.services-section{
+  margin-top: 14%;
+}
+.Footer {
+  margin-top: 8%;
+  padding-bottom: 5%;
+  padding-top: 3%;
+  padding-left: 4vw;
+  padding-right: 4vw;
+  display: flex;
+  justify-content: space-between;
+  background-color: black;
+  color: white;
+  align-items: center;
+
+  /* Add curved top effect */
+  position: relative;
+}
+
+.Footer::before {
+  content: "";
+  position: absolute;
+  top: -30px; 
+  left: 0;
+  right: 0;
+  height: 60px; 
+  background-color: black; 
+  border-radius: 100%;
 }
