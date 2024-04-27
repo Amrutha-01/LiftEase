@@ -4,12 +4,7 @@ import MainPage from "./components/MainPage/MainPage";
 import Navbar from "./components/Navbar/Navbar";
 import GetRide from "./components/GetRide/GetRidePage/GetRide";
 import Footer from "./components/Footer/Footer";
-import first from "./components/images/1st box.png"
-import mid from "./components/images/middle box.jpeg"
-import last from "./components/images/last box.jpeg";
-import free from "./components/images/free ride.png"
-import companion from "./components/images/companion (1).jpeg"
-import fossil from "./components/images/fossil fuels.jpeg"
+
 
 import GiveRide from "./components/GiveRide/GiveRide";
 import LEWorkGet from "./components/LEWorkGet/LEWorkGet";
