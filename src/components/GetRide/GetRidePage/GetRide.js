@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "../../../index.css";
+import "../../../index";
 import Map from "../Map/Map";
 import { useEffect } from "react";
 import { auth, provider } from "../../../firebase";
@@ -33,7 +33,7 @@ export default function GetRide() {
   const [user] = useAuthState(auth);
   const { pickup } = useSelector((state) => state.pickup);
   const { drop } = useSelector((state) => state.drop);
-  console.log(pickup, drop);
+  
   useEffect(() => {
     let active = true;
     if (!loading) {
@@ -96,34 +96,14 @@ export default function GetRide() {
   return (
     <div className="get-ride flex flex-row">
       <div className="searching-part flex flex-col">
-        <h1 style={{ textAlign: "left", fontSize: "70px", color: "black" }}>
-          Find a lift
-        </h1>
-        <p
-          style={{
-            textAlign: "left",
-            fontWeight: "100",
-            marginLeft: "4px",
-            color: "#4b4949",
-          }}
-        >
-          Hop in, and enjoy a free ride!
-        </p>
         <PickUp />
         <Drop />
-        <button
-          className="bg-black text-white w-40 m-5"
-          onClick={handleSearch}
-          id="search-button"
-        >
+        <button className="bg-black text-white w-40 m-5" onClick={handleSearch}>
           {user ? "Search" : "Sign in to Search"}
         </button>
       </div>
-      {searched ? (
-        <Map searched={searched} />
-      ) : (
-        <img src={img1} className="main-img" />
-      )}
+
+      {searched ? <Map searched={searched} /> : <img src={img1} />}
     </div>
   );
 }
