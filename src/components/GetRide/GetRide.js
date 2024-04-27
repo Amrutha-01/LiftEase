@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "../../index.css";
-import Map from "./Map";
+import Map from "./map.js";
 import { useEffect } from "react";
 import { auth, provider } from "../../firebase";
 import { signInWithPopup, signOut } from "firebase/auth";
