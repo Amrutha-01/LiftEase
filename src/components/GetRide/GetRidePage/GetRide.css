@@ -1,0 +1,28 @@
+.get-ride{
+    /* background: #000000; */
+    display: flex;
+    justify-content: space-between;
+    margin-right: 4vw;
+}
+.searching-part{
+    margin: 2%;
+    display: flex;
+    margin-left: 7vw;
+    /* align-items: center; */
+    justify-content: center;
+    width: 30%;
+    color: #4b4949;
+}
+.searching-part #search-button{
+    width: 28.8vw;
+    margin: 2% 0%;
+    border-radius: 4px;
+    height: 9vh;
+}
+
+.main-img{
+    /* height: 80vh;
+    width: 60vw; */
+    height: 80vh;
+    margin-right: 10vw;
+}

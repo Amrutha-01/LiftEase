@@ -4,9 +4,10 @@ import Autocomplete from "@mui/material/Autocomplete";
 import CircularProgress from "@mui/material/CircularProgress";
 import { Divider } from "@mui/material";
 import { useEffect, useState } from "react";
-import { setpickUp } from "../../redux/PickUpSlice";
+import { setpickUp } from "../../../redux/PickUpSlice";
 import { useDispatch } from "react-redux";
 import "./PickUp.css";
+import location from "../../images/Group 1.svg";
 
 function sleep(duration) {
   return new Promise((resolve) => {
@@ -23,7 +24,7 @@ export default function PickUp() {
   const [list, setList] = useState(null);
   const [input, setInput] = useState("");
   // const [pickup, setPickUp] = useState("")
-  const dispatch=useDispatch();
+  const dispatch = useDispatch();
   // console.log("SearchComponent rendered with:", {  pickup,, input });
   useEffect(() => {
     let active = true;
@@ -63,9 +64,39 @@ export default function PickUp() {
   }, [input]);
   return (
     <div className="pickup">
+      <img src={location} className="location" />
       <Autocomplete
-        id='pickup'
-        sx={{ width: 300 }}
+        id="pickup"
+        sx={{
+          width: 300,
+          ".css-14lo706 span": {
+            display: "none",
+          },
+          ".css-1kcfx55-MuiAutocomplete-root .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline ":
+            {
+              display: "none",
+            },
+          "& .MuiOutlinedInput-root .MuiOutlinedInput-input": {
+            color: "black", // Set input text color
+          },
+          "& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-input::placeholder":
+            {
+              color: "black", // Set placeholder text color when focused
+            },
+          "& .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline": {
+            visibility: "none",
+            borderColor: "white",
+          },
+          "& .MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline": {
+            visibility: "none",
+            borderColor: "white",
+          },
+          "& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline":
+            {
+              visibility: "none",
+              borderColor: "white",
+            },
+        }}
         open={open}
         onOpen={() => {
           setOpen(true);
@@ -79,7 +110,7 @@ export default function PickUp() {
           }
         }}
         onChange={(event, newValue) => {
-           dispatch(setpickUp(newValue))
+          dispatch(setpickUp(newValue));
         }}
         getOptionLabel={(option) => option.display_name}
         options={options}
@@ -96,7 +127,7 @@ export default function PickUp() {
               setInput(e.target.value);
             }}
             {...params}
-            label="Pickup Location"
+            placeholder="Pickup Location"
             InputProps={{
               ...params.InputProps,
               endAdornment: (

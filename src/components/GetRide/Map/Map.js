@@ -16,7 +16,7 @@ export default function Map({ searched }) {
   const { drop } = useSelector((state) => state.drop);
   console.log(pickup, drop);
   return (
-    <div>
+    <div style={{ border: "2px solid black" }}>
       {searched && (
         <MapContainer
           center={[51.505, -0.09]}
@@ -24,12 +24,12 @@ export default function Map({ searched }) {
           zoom={5}
           scrollWheelZoom={false}
           dragging={true}
-          style={{ height: "80vh", width: "70vw" }}
+          style={{ height: "80vh", width: "55vw" }}
           // whenCreated={(map) => setMap(map)}
         >
           <TileLayer
             attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-            url="https://api.maptiler.com/maps/winter-v2/256/{z}/{x}/{y}.png?key=JlhDos5nXAz2NvTyUuks"
+            url="https://api.maptiler.com/maps/toner-v2/256/{z}/{x}/{y}.png?key=JlhDos5nXAz2NvTyUuks"
           />
           {pickup && (
             <Marker

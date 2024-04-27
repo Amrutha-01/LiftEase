@@ -6,6 +6,8 @@ import { Divider } from "@mui/material";
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { setDrop } from "../../redux/DropSlice";
+import "../GetRide/PickUp/PickUp.css"
+import dropImg from "../images/location.svg"
 
 function sleep(duration) {
   return new Promise((resolve) => {
@@ -63,9 +65,27 @@ export default function Drop() {
   }, [input]);
   return (
     <div className="drop">
+      <img src={dropImg} className="location"/>
       <Autocomplete
         id='drop'
-        sx={{ width: 300 }}
+        sx={{ width: 300 ,".css-14lo706 span":{
+          color:"black"
+        },
+        '& .MuiOutlinedInput-root .MuiOutlinedInput-input': {
+          color: 'black', // Set input text color
+        },
+        '& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-input::placeholder': {
+          color: 'black', // Set placeholder text color when focused
+        },
+          '& .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline': {
+            borderColor: 'white', 
+          },
+          '& .MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline': {
+            borderColor: 'white', 
+          },
+          '& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline': {
+            borderColor: 'white', 
+          },}}
         open={open}
         onOpen={() => {
           setOpen(true);
@@ -97,7 +117,7 @@ export default function Drop() {
               setInput(e.target.value);
             }}
             {...params}
-            label="Dropp Location"
+            placeholder="Drop Location"
             InputProps={{
               ...params.InputProps,
               endAdornment: (

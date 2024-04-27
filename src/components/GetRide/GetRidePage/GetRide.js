@@ -1,15 +1,15 @@
 import React, { useState } from "react";
-import "../../index.css";
-import Map from "./Map";
+import "../../../index.css";
+import Map from "../Map/Map";
 import { useEffect } from "react";
-import { auth, provider } from "../../firebase";
+import { auth, provider } from "../../../firebase";
 import { signInWithPopup, signOut } from "firebase/auth";
 import { useAuthState } from "react-firebase-hooks/auth";
-import PickUp from "./PickUp";
-import Drop from "./Drop";
+import PickUp from "../PickUp/PickUp";
+import Drop from "../Drop";
 import { useSelector } from "react-redux";
 import "./GetRide.css";
-import img1 from "../images/Designer (2) (7).svg";
+import img1 from "../../images/Designer (2).png";
 
 function sleep(duration) {
   return new Promise((resolve) => {
@@ -96,14 +96,34 @@ export default function GetRide() {
   return (
     <div className="get-ride flex flex-row">
       <div className="searching-part flex flex-col">
+        <h1 style={{ textAlign: "left", fontSize: "70px", color: "black" }}>
+          Find a lift
+        </h1>
+        <p
+          style={{
+            textAlign: "left",
+            fontWeight: "100",
+            marginLeft: "4px",
+            color: "#4b4949",
+          }}
+        >
+          Hop in, and enjoy a free ride!
+        </p>
         <PickUp />
         <Drop />
-        <button className="bg-black text-white w-40 m-5" onClick={handleSearch}>
+        <button
+          className="bg-black text-white w-40 m-5"
+          onClick={handleSearch}
+          id="search-button"
+        >
           {user ? "Search" : "Sign in to Search"}
         </button>
       </div>
-
-      {searched ? <Map searched={searched} /> : <img src={img1} />}
+      {searched ? (
+        <Map searched={searched} />
+      ) : (
+        <img src={img1} className="main-img" />
+      )}
     </div>
   );
 }
