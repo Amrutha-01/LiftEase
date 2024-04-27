@@ -1,7 +1,7 @@
-import React from 'react'
+import React from "react";
 import "../../index.css";
 import Map from "../GetRide/Map/Map";
-import { useEffect,useState } from "react";
+import { useEffect, useState } from "react";
 import { auth, provider } from "../../firebase";
 import { signInWithPopup, signOut } from "firebase/auth";
 import { useAuthState } from "react-firebase-hooks/auth";
@@ -10,7 +10,14 @@ import Drop from "../GetRide/Drop";
 import { useSelector } from "react-redux";
 import "../GetRide/GetRidePage/GetRide.css";
 import img1 from "../images/Designer (2).png";
-
+import { faTruckDroplet } from "@fortawesome/free-solid-svg-icons";
+import { app } from "../../firebase";
+import 'firebase/database';
+import { database } from "../../firebase";
+import { getDatabase,ref,push } from "firebase/database";
+// import { toast } from 'react-toastify';
+// import 'react-toastify/dist/ReactToastify.css';
+import toast, { Toaster } from 'react-hot-toast';
 function sleep(duration) {
   return new Promise((resolve) => {
     setTimeout(() => {
@@ -19,6 +26,27 @@ function sleep(duration) {
   });
 }
 
+  const storeData = (name,pickup,drop) => {
+    // Reference to the desired path in the database
+    const database = getDatabase(app);
+    const dbRef = ref(database, 'giveRideData');
+    
+    // Data to be stored
+    const newData = {
+      name:name,
+      pickup:pickup,
+      drop:drop
+    };
+
+    // Push the new data to the database
+    push(dbRef, newData)
+  .then(() => {
+    return true
+  })
+  .catch((error) => {
+    return false
+  });
+  };
 export default function GiveRide() {
   const [searched, setSearched] = useState(false);
 
@@ -26,12 +54,29 @@ export default function GiveRide() {
   const [options, setOptions] = useState([]);
   const loading = open && options.length === 0;
   const [list, setList] = useState(null);
-
+  const [success, setSuccess] = useState(false);
   // Firebase Authentication
   const [user] = useAuthState(auth);
   const { pickup } = useSelector((state) => state.pickup);
   const { drop } = useSelector((state) => state.drop);
 
+  const notify = () => toast('Please wait till we connect you to a companion.', {
+    duration: 4000,
+    position: 'top-center',
+  
+    // icon: '👏',
+  
+    // Change colors of success/error/loading icon
+    iconTheme: {
+      primary: '#000',
+      secondary: '#fff',
+    },
+  
+    ariaProps: {
+      role: 'status',
+      'aria-live': 'polite',
+    },
+  });;
   useEffect(() => {
     let active = true;
     if (!loading) {
@@ -54,6 +99,13 @@ export default function GiveRide() {
       setOptions([]);
     }
   }, [open]);
+  
+  useEffect(() => {
+    if(user&&pickup&&drop){
+      const res=storeData(user.displayName,pickup,drop)
+      setSuccess(res)
+    }
+  }, [user, pickup, drop]);
 
   useEffect(() => {
     const locationResult = (query, format, limit) => {
@@ -89,6 +141,7 @@ export default function GiveRide() {
     } else {
       signInWithGoogle();
     }
+      notify();
   };
   return (
     <div className="get-ride flex flex-row">
@@ -97,12 +150,17 @@ export default function GiveRide() {
         <p id="tagline">Enjoy your rewards!</p>
         <PickUp />
         <Drop />
-        <button className="bg-black text-white w-40" onClick={handleSearch} id="search">
+        <button
+          className="bg-black text-white w-40"
+          onClick={handleSearch}
+          id="search"
+        >
           {user ? "Search" : "Sign in to Search"}
         </button>
+        <Toaster />
       </div>
 
       {searched ? <Map searched={searched} /> : <img src={img1} />}
     </div>
-  )
+  );
 }

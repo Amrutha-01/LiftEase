@@ -4,6 +4,13 @@ import MainPage from "./components/MainPage/MainPage";
 import Navbar from "./components/Navbar/Navbar";
 import GetRide from "./components/GetRide/GetRidePage/GetRide";
 import Footer from "./components/Footer/Footer";
+import first from "./components/images/1st box.png"
+import mid from "./components/images/middle box.jpeg"
+import last from "./components/images/last box.jpeg";
+import free from "./components/images/free ride.png"
+import companion from "./components/images/companion (1).jpeg"
+import fossil from "./components/images/fossil fuels.jpeg"
+
 import GiveRide from "./components/GiveRide/GiveRide";
 import LEWorkGet from "./components/LEWorkGet/LEWorkGet";
 import MobileScroll from "./components/Features/Featuresshow";
@@ -11,12 +18,9 @@ import money from "./components/images/Designer (2).png";
 import img1 from "./components/images/Designer (2) (7).svg";
 import img2 from "./components/images/Saving money-amico.svg";
 import img3 from "./components/images/location.svg";
-import first from "./components/images/1st box.png";
-import mid from "./components/images/middle box.jpeg";
-import last from "./components/images/last box.jpeg";
-import free from "./components/images/free ride.png";
-import companion from "./components/images/companion (1).jpeg";
-import fossil from "./components/images/fossil fuels.jpeg";
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 function App() {
   const getRideData = {
     title: "How LiftEase Works?",
@@ -114,8 +118,9 @@ function App() {
             element={
               <div>
                 <Navbar />
+                <ToastContainer/>
                 <GetRide />
-                <MobileScroll scrollData={getRideScroll} />
+                <MobileScroll scrollData={getRideScroll}/>
                 <LEWorkGet data={getRideData} />
                 <Footer />
               </div>
@@ -126,6 +131,7 @@ function App() {
             element={
               <div>
                 <Navbar />
+                <ToastContainer/>
                 <GiveRide />
                 <MobileScroll scrollData={giveRideScroll} />
                 <LEWorkGet data={giveRideData} />

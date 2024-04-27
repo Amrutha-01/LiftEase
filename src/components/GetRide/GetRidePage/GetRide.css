@@ -40,3 +40,9 @@
     border-radius: 5px;
     height: 8vh;
 }
+.before-search{
+    visibility: hidden;
+}
+.after-search{
+    visibility:visible;
+}
