@@ -41,7 +41,7 @@ export default function Footer() {
           <div className="horizontal"></div>
         </div>
       </div>
-      <h2 id="logo">LOGO</h2>
+      <h2 id="logo">LiftEase</h2>
 
       <div className="contactus-section">
         <h3>Contact Us</h3>
