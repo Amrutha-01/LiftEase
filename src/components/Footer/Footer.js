@@ -12,6 +12,7 @@ import {
   faLinkedin,
   faXTwitter,
 } from "@fortawesome/free-brands-svg-icons";
+import FooterLogo from "../images/liftease (1).png"
 
 export default function Footer() {
   return (
@@ -41,7 +42,7 @@ export default function Footer() {
           <div className="horizontal"></div>
         </div>
       </div>
-      <h2 id="logo">LiftEase</h2>
+      <h2 id="logo"><img src={FooterLogo} /></h2>
 
       <div className="contactus-section">
         <h3>Contact Us</h3>
