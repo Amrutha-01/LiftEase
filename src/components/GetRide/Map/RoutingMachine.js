@@ -6,7 +6,6 @@ import { useMap } from "react-leaflet";
 import "./RoutingMachine.css"
 
 const RoutingMachine = ({pickup,drop}) => {
-    console.log(pickup)
   const mapp=useMap();
   L.Routing.control({
     waypoints: [

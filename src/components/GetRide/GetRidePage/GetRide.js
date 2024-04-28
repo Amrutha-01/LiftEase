@@ -84,7 +84,6 @@ export default function GetRide() {
       onValue(dbRef, () => {});
     };
   }, []);
-  console.log(data);
   const [age, setAge] = React.useState("");
 
   const handleChange = (event) => {
@@ -189,8 +188,10 @@ export default function GetRide() {
                 Object.keys(data).map((key) => {
                   const obj = data[key];
                   return (
-                    <MenuItem key={key} value={obj.name}>
-                      {obj.name}
+                    <MenuItem key={key} value={obj.name} sx={{display:'flex',flexDirection:'column'}}>
+                      <p>{obj.name}</p>
+                      <p>From {obj.pickup.name} to {obj.drop.name}</p>
+                      <hr style={{width: '90%', border: '1px solid #ccc'}}/>
                     </MenuItem>
                   );
                 })}

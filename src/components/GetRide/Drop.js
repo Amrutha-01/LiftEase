@@ -26,7 +26,6 @@ export default function Drop() {
 //   const [drop, setDrop] = useState("")
   const dispatch=useDispatch();
 
-  // console.log("SearchComponent rendered with:", {  pickup,, input });
   useEffect(() => {
     let active = true;
     if (!loading) {

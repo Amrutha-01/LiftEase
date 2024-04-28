@@ -25,7 +25,6 @@ export default function PickUp() {
   const [input, setInput] = useState("");
   // const [pickup, setPickUp] = useState("")
   const dispatch = useDispatch();
-  // console.log("SearchComponent rendered with:", {  pickup,, input });
   useEffect(() => {
     let active = true;
     if (!loading) {
